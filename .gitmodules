@@ -1,0 +1,3 @@
+[submodule "Twisted"]
+	path = Twisted
+	url = https://github.com/twisted/twisted
