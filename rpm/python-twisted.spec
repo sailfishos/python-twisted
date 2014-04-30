@@ -39,10 +39,10 @@ Documentation for Twisted.
 %setup -q -n %{name}-%{version}/Twisted
 
 # Turn off exec bits on docs to avoid spurious dependencies
-find doc -type f | xargs chmod 644
+find docs -type f | xargs chmod 644
 
 # Fix line endings
-sed -i -e 's,\r$,,' doc/core/howto/listings/udp/*
+sed -i -e 's,\r$,,' docs/core/howto/listings/udp/*
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" python setup.py build
@@ -59,8 +59,8 @@ rm -rf $RPM_BUILD_ROOT%{python_sitearch}/twisted/internet/iocpreactor
 
 # Man pages
 mkdir -p $RPM_BUILD_ROOT%{_mandir}/man1/
-cp -a doc/*/man/*.1 $RPM_BUILD_ROOT%{_mandir}/man1/
-rm -rf doc/man
+cp -a docs/*/man/*.1 $RPM_BUILD_ROOT%{_mandir}/man1/
+rm -rf docs/man
 
 # Some of the zsh completions are no longer appropriate
 find $RPM_BUILD_ROOT%{python_sitearch}/twisted/python/zsh -size 0c -exec rm -f {} \;
@@ -111,5 +111,5 @@ fi
 %{python_sitearch}/twisted/*
 
 %files doc
-%doc doc/*
+%doc docs/*
 
