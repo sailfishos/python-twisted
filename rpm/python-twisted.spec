@@ -36,7 +36,7 @@ Requires:       python-twisted = %{version}-%{release}
 Documentation for Twisted.
 
 %prep
-%setup -q -n %{name}-%{version}/Twisted
+%autosetup -n %{name}-%{version}/twisted
 
 # Turn off exec bits on docs to avoid spurious dependencies
 find docs -type f | xargs chmod 644

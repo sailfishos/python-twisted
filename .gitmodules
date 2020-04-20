@@ -1,3 +1,3 @@
-[submodule "Twisted"]
-	path = Twisted
-	url = https://github.com/twisted/twisted
+[submodule "twisted"]
+	path = twisted
+	url = https://git.sailfishos.org/mirror/twisted.git
