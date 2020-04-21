@@ -1,4 +1,5 @@
 %{!?python_sitearch: %define python_sitearch %(%{python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
+%{!?python_version: %define python_version %(%{__python} -Esc "import sys; sys.stdout.write('{0.major}.{0.minor}'.format(sys.version_info))")}
 
 Name:           python-twisted
 Version:        12.3.0
@@ -36,7 +37,7 @@ Requires:       python-twisted = %{version}-%{release}
 Documentation for Twisted.
 
 %prep
-%setup -q -n %{name}-%{version}/Twisted
+%autosetup -n %{name}-%{version}/twisted
 
 # Turn off exec bits on docs to avoid spurious dependencies
 find docs -type f | xargs chmod 644
@@ -108,7 +109,8 @@ fi
 %attr(0755, root, root) %{_libexecdir}/twisted-dropin-cache
 %{_mandir}/man1/*
 %ghost %{python_sitearch}/twisted/plugins/dropin.cache
-%{python_sitearch}/twisted/*
+%{python_sitearch}/Twisted-*-py%{python_version}.egg-info
+%{python_sitearch}/twisted
 
 %files doc
 %doc docs/*
