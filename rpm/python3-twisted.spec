@@ -1,5 +1,5 @@
 Name:           python3-twisted
-Version:        20.3.0
+Version:        22.10.0
 Release:        0
 Summary:        Asynchronous networking framework written in Python
 License:        MIT
@@ -10,6 +10,7 @@ Source1:        twisted-dropin-cache
 BuildRequires:  python3-devel
 BuildRequires:  python3-zope-interface
 BuildRequires:  python3-incremental
+BuildRequires:  python3-setuptools
 Requires:       python3-base
 Requires:       python3-zope-interface
 
